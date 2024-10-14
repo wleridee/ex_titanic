@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "9b17a1f2-cf94-47df-9098-96f498e37ca0",
+    "name": "Titanic API Tests",
+    "description": "Collection for testing Titanic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38980568"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload CSV",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "./train.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/passengers/upload",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["passengers", "upload"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload Empty CSV",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/C:/Users/WilliamLERIDEE/Downloads/empty.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/passengers/upload",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["passengers", "upload"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Passengers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/passengers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["passengers"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Passengers with some filters",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/passengers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["passengers"],
+          "query": [
+            {
+              "key": "passenger_class",
+              "value": "UPPER"
+            },
+            {
+              "key": "sex",
+              "value": "MALE"
+            },
+            {
+              "key": "name",
+              "value": "John"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Passenger by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "raw": "http://localhost:8000/passengers/1",
+        "protocol": "http",
+        "host": ["localhost"],
+        "port": "8000",
+        "path": ["passengers", "1"]
+      },
+      "response": []
+    },
+    {
+      "name": "Delete All Passengers",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/passengers",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["passengers"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

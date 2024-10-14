@@ -1,0 +1,24 @@
+datasource db {
+    provider = "sqlite"
+    url      = "file:database.db"
+}
+
+generator client {
+    provider             = "prisma-client-py"
+    recursive_type_depth = 5
+}
+
+model TitanicPassenger {
+    id                          Int     @id
+    has_survived                Boolean
+    passenger_class             Int
+    name                        String
+    sex                         String
+    age                         Float?
+    siblings_and_spouses_number Int
+    parents_and_children_number Int
+    ticket_number               String
+    fare                        Float
+    cabin_number                String?
+    port_of_embarkation         String?
+}
